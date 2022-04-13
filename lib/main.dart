@@ -127,7 +127,12 @@ class _HomePageState extends State<HomePage> with WindowListener {
                             key: ValueKey(navList[index].index),
                             child: ListTile(
                               onTap: () {
-                                page.jumpToPage(navList[index].index);
+                                // page.jumpToPage(navList[index].index);
+                                page.animateToPage(
+                                    navList[index].index,
+                                    curve: Curves.ease,
+                                    duration: const Duration(milliseconds: 400)
+                                );
                               },
                               title: Text(
                                 navList[index].title,
@@ -154,7 +159,11 @@ class _HomePageState extends State<HomePage> with WindowListener {
                                 child: ListTile(
                                   onTap: () {
                                     // thlinde:Settings is last Page: length+1
-                                    page.jumpToPage(navList.length + 1);
+                                    page.animateToPage(
+                                        navList.length + 1,
+                                        curve: Curves.ease,
+                                        duration: const Duration(milliseconds: 400)
+                                    );
                                   },
                                   title: const Text(
                                     "Einstellungen",
