@@ -5,7 +5,15 @@ import 'package:get_storage/get_storage.dart';
 
 class StoreController extends GetxController {
   var appointmentDateStr = ''.obs;
+  String getAppointmentDateStr() => appointmentDateStr.value;
   setAppointmentDateStr(String str) => appointmentDateStr.value = str;
+}
+
+class StoreBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut<StoreController>(() => StoreController());
+  }
 }
 
 class ProgController extends GetxController {

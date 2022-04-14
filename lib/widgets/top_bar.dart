@@ -3,15 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../model/store.dart';
+import '../model/utility.dart';
 import 'set_date_dlg.dart';
 
-class TopBar extends StatelessWidget {
-  TopBar({Key? key}) : super(key: key);
-
-  final controller = Get.put(StoreController());
+class TopBar extends GetView<StoreController> {
+  const TopBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // thlinde:init appointment date
+    controller.setAppointmentDateStr(todayDate());
+
     return SizedBox(
       height: 60,
       child: Ink(
@@ -49,7 +51,7 @@ class TopBar extends StatelessWidget {
             const Expanded(child: SizedBox()),
             Obx(() =>
                 Text(
-                  controller.appointmentDateStr.value,
+                  controller.getAppointmentDateStr(),
                   style: TextStyle(
                       fontSize: 20,
                       color: Colors.grey.shade100

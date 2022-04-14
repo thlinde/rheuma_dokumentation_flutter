@@ -11,11 +11,18 @@ class NavItem {
   NavItem(this.index, this.title, this.icon, {this.isSelected = false});
 }
 
-List<NavItem> initNavList() {
+List<NavItem> navItemsContentPages() {
   List<NavItem> _list = [];
   _list.add(NavItem(0, 'Das ist Item1', Icons.home));
   _list.add(NavItem(1, 'Das ist Item2', Icons.person));
   _list.add(NavItem(2, 'Das ist Item3', Icons.document_scanner));
+  return _list;
+}
+
+List<NavItem> navItemsUtilityPages() {
+  List<NavItem> _list = [];
+  _list.add(NavItem(0, 'Information', Icons.info));
+  _list.add(NavItem(1, 'Einstellungen', Icons.settings));
   return _list;
 }
 
