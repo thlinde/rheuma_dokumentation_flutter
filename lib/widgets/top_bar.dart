@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:get/get.dart';
 import '../model/store.dart';
 import '../model/utility.dart';
@@ -33,7 +34,7 @@ class TopBar extends GetView<StoreController> {
                 // iconSize: 25,
                 splashRadius: 25,
                 icon: Icon(
-                  Icons.person_add,
+                  LineIcons.userCircle,
                   color: Colors.grey[100],
                   size: 25,
                 ),
@@ -68,7 +69,7 @@ class TopBar extends GetView<StoreController> {
                 onPressed: () => openSetDateDlg(context),
                 splashRadius: 25,
                 icon: Icon(
-                  Icons.calendar_view_week,
+                  LineIcons.calendarWithDayFocus,
                   color: Colors.grey[100],
                   size: 20,
                 ),

@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
@@ -71,11 +72,14 @@ class MainLayout extends GetView<StoreController> with WindowListener {
 
   final ProgController prog = Get.find();
   PageController page = PageController();
-  // thlinde:Initialize Items for NavigatenSideBar
-  final navContentPages = navItemsContentPages();
 
   @override
   Widget build(BuildContext context) {
+
+    // thlinde:Initialize Items for NavigatenSideBar
+    final navContentPages = navItemsContentPages();
+    final navUtilityPages = navItemsUtilityPages();
+
     return StatefulWrapper(
         onInit: () {
           // controller.setAppointmentDateStr(todayDate());
@@ -129,12 +133,13 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                                     child: ListTile(
                                       onTap: () {
                                         // page.jumpToPage(navList[index].index);
-                                        page.animateToPage(
-                                            navContentPages[index].index,
-                                            curve: Curves.ease,
-                                            duration: const Duration(
-                                                milliseconds: 400)
-                                        );
+                                        // page.animateToPage(
+                                        //     navContentPages[index].index,
+                                        //     curve: Curves.ease,
+                                        //     duration: const Duration(
+                                        //         milliseconds: 400)
+                                        // );
+                                        page.jumpToPage(navContentPages[index].index);
                                       },
                                       title: Text(
                                         navContentPages[index].title,
@@ -150,7 +155,7 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                           children: [
                             SizedBox(
                               width: 250,
-                              height: 145,
+                              height: 200,
                               child: ListView(
                                 padding: const EdgeInsets.all(8),
                                 children: [
@@ -160,20 +165,44 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                                     color: Colors.grey[200],
                                     child: ListTile(
                                       onTap: () {
-                                        // thlinde:Settings is last Page: length+1
-                                        page.animateToPage(
-                                            navContentPages.length + 1,
-                                            curve: Curves.ease,
-                                            duration: const Duration(
-                                                milliseconds: 400)
-                                        );
+                                        final currentIndex = navContentPages.length;
+                                        print('currentIndex: $currentIndex');
+                                        // page.animateToPage(
+                                        //     currentIndex,
+                                        //     curve: Curves.ease,
+                                        //     duration: const Duration(
+                                        //         milliseconds: 400)
+                                        // );
+                                        page.jumpToPage(navContentPages.length);
                                       },
                                       title: const Text(
                                         "Einstellungen",
                                         style: TextStyle(fontSize: 14),
                                       ),
                                       leading: const Icon(
-                                        Icons.settings,
+                                        LineIcons.cog,
+                                      ),
+                                    ),
+                                  ),
+                                  Card(
+                                    elevation: 0.0,
+                                    color: Colors.grey[200],
+                                    child: ListTile(
+                                      onTap: () {
+                                        // page.animateToPage(
+                                        //     navContentPages.length + 1,
+                                        //     curve: Curves.ease,
+                                        //     duration: const Duration(
+                                        //         milliseconds: 400)
+                                        // );
+                                        page.jumpToPage(navContentPages.length + 1);
+                                      },
+                                      title: const Text(
+                                        "Information",
+                                        style: TextStyle(fontSize: 14),
+                                      ),
+                                      leading: const Icon(
+                                        LineIcons.infoCircle,
                                       ),
                                     ),
                                   ),
@@ -192,13 +221,13 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                                             fontWeight: FontWeight.w600
                                         ),
                                       ),
-                                      leading: Icon(Icons.exit_to_app,
+                                      leading: Icon(LineIcons.powerOff,
                                           color: Colors.grey[100]),
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
+                              ),
                           ],
                         ),
                       ],
@@ -209,10 +238,14 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                       child: PageView(
                         controller: page,
                         children: const [
-                          GeneralPage(title: 'Testseite 1'),
-                          GeneralPage(title: 'Testseite 2'),
-                          GeneralPage(title: 'Testseite 3'),
+                          GeneralPage(title: 'Patientendaten'),
+                          GeneralPage(title: 'Anamnese'),
+                          GeneralPage(title: 'Untersuchung'),
+                          GeneralPage(title: 'Scores'),
+                          GeneralPage(title: 'Therapie'),
+                          GeneralPage(title: 'Epikrise'),
                           SettingsPage(title: 'Einstellungen'),
+                          GeneralPage(title: 'Programminformation'),
                         ],
                       ),
                     ),

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:line_icons/line_icons.dart';
 
 class NavItem {
   int index;
@@ -13,16 +14,19 @@ class NavItem {
 
 List<NavItem> navItemsContentPages() {
   List<NavItem> _list = [];
-  _list.add(NavItem(0, 'Das ist Item1', Icons.home));
-  _list.add(NavItem(1, 'Das ist Item2', Icons.person));
-  _list.add(NavItem(2, 'Das ist Item3', Icons.document_scanner));
+  _list.add(NavItem(0, 'Patient', LineIcons.userAlt));
+  _list.add(NavItem(1, 'Anamnese', LineIcons.history));
+  _list.add(NavItem(2, 'Untersuchung', LineIcons.stethoscope));
+  _list.add(NavItem(3, 'Scores', LineIcons.star));
+  _list.add(NavItem(4, 'Therapie', LineIcons.tablets));
+  _list.add(NavItem(5, 'Epikrise', LineIcons.envelopeOpenText));
   return _list;
 }
 
 List<NavItem> navItemsUtilityPages() {
   List<NavItem> _list = [];
-  _list.add(NavItem(0, 'Information', Icons.info));
-  _list.add(NavItem(1, 'Einstellungen', Icons.settings));
+  _list.add(NavItem(0, 'Information', LineIcons.infoCircle));
+  _list.add(NavItem(1, 'Einstellungen', LineIcons.cog));
   return _list;
 }
 
