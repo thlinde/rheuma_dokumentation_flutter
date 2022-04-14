@@ -23,6 +23,7 @@ void main() async {
 
   windowManager.waitUntilReadyToShow().then((_) async{
     await windowManager.setTitleBarStyle(TitleBarStyle.hidden);
+    await windowManager.setMinimumSize(const Size(1024, 800));
     await windowManager.setSize(Size(prog.width, prog.height));
     await windowManager.setPosition(Offset(prog.xPos, prog.yPos));
     await windowManager.setPreventClose(true);
@@ -42,6 +43,7 @@ class ThlindeApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: StoreBinding(),
+      // scrollBehavior: AppScrollBehavior(),
       title: 'thlindeApp',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -71,14 +73,13 @@ class MainLayout extends GetView<StoreController> with WindowListener {
   }
 
   final ProgController prog = Get.find();
-  PageController page = PageController();
 
   @override
   Widget build(BuildContext context) {
 
+    PageController page = PageController();
     // thlinde:Initialize Items for NavigatenSideBar
     final navContentPages = navItemsContentPages();
-    final navUtilityPages = navItemsUtilityPages();
 
     return StatefulWrapper(
         onInit: () {
@@ -155,7 +156,7 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                           children: [
                             SizedBox(
                               width: 250,
-                              height: 200,
+                              height: 220,
                               child: ListView(
                                 padding: const EdgeInsets.all(8),
                                 children: [
@@ -165,8 +166,6 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                                     color: Colors.grey[200],
                                     child: ListTile(
                                       onTap: () {
-                                        final currentIndex = navContentPages.length;
-                                        print('currentIndex: $currentIndex');
                                         // page.animateToPage(
                                         //     currentIndex,
                                         //     curve: Curves.ease,
@@ -225,6 +224,15 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                                           color: Colors.grey[100]),
                                     ),
                                   ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 4),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: const [
+                                        Text('Ⓒ thlinde 2022'),
+                                      ],
+                                    ),
+                                  )
                                 ],
                               ),
                               ),

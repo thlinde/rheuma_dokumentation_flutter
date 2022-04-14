@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
@@ -23,11 +24,18 @@ List<NavItem> navItemsContentPages() {
   return _list;
 }
 
-List<NavItem> navItemsUtilityPages() {
-  List<NavItem> _list = [];
-  _list.add(NavItem(0, 'Information', LineIcons.infoCircle));
-  _list.add(NavItem(1, 'Einstellungen', LineIcons.cog));
-  return _list;
-}
+// List<NavItem> navItemsUtilityPages() {
+//   List<NavItem> _list = [];
+//   _list.add(NavItem(0, 'Information', LineIcons.infoCircle));
+//   _list.add(NavItem(1, 'Einstellungen', LineIcons.cog));
+//   return _list;
+// }
 
 todayDate() => DateFormat('dd.MM.yyyy').format(DateTime.now());
+
+class AppScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+    PointerDeviceKind.mouse,
+  };
+}

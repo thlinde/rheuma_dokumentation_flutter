@@ -15,7 +15,7 @@ class GeneralPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          makeHeader(title),
+          PageHeader(title: title),
         ],
       ),
     );

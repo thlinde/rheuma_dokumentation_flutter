@@ -15,7 +15,29 @@ class SettingsPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          makeHeader(title),
+          PageHeader(title: title),
+          Expanded(
+            child: SingleChildScrollView(
+              controller: ScrollController(),
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: [
+                  Container(
+                    color: Colors.yellow,
+                    height: 500,
+                  ),
+                  Container(
+                    color: Colors.blue,
+                    height: 500,
+                  ),
+                  Container(
+                    color: Colors.green,
+                    height: 500,
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
