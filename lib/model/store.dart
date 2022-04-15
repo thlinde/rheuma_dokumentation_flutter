@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -7,6 +8,8 @@ class StoreController extends GetxController {
   var appointmentDateStr = ''.obs;
   String getAppointmentDateStr() => appointmentDateStr.value;
   setAppointmentDateStr(String str) => appointmentDateStr.value = str;
+
+  TextEditingController gdtPathController = TextEditingController();
 }
 
 class StoreBinding extends Bindings {

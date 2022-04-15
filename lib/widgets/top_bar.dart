@@ -27,16 +27,15 @@ class TopBar extends GetView<StoreController> {
             Ink(
               decoration: ShapeDecoration(
                 shape: const CircleBorder(),
-                color: Colors.blue[600],
+                color: Colors.blue.shade700,
               ),
               child: IconButton(
                 onPressed: () {},
-                // iconSize: 25,
+                iconSize: 25,
                 splashRadius: 25,
                 icon: Icon(
-                  LineIcons.userCircle,
-                  color: Colors.grey[100],
-                  size: 25,
+                  LineIcons.user,
+                  color: Colors.grey.shade300,
                 ),
               ),
             ),
@@ -63,15 +62,15 @@ class TopBar extends GetView<StoreController> {
             Ink(
               decoration: ShapeDecoration(
                 shape: const CircleBorder(),
-                color: Colors.blue[600],
+                color: Colors.blue.shade700,
               ),
               child: IconButton(
                 onPressed: () => openSetDateDlg(context),
                 splashRadius: 25,
+                iconSize: 25,
                 icon: Icon(
                   LineIcons.calendarWithDayFocus,
-                  color: Colors.grey[100],
-                  size: 20,
+                  color: Colors.grey[300],
                 ),
               ),
             ),
