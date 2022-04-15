@@ -64,8 +64,11 @@ class PathChooser extends GetView<StoreController> {
                 child: TextField(
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                   ),
                   controller: itemCtr,
+                  readOnly: true,
                 ),
               ),
               Padding(
