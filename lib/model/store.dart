@@ -10,6 +10,8 @@ class StoreController extends GetxController {
   setAppointmentDateStr(String str) => appointmentDateStr.value = str;
 
   TextEditingController gdtPathController = TextEditingController();
+  TextEditingController textDataFilePathController = TextEditingController();
+  TextEditingController dbFilePathController = TextEditingController();
 }
 
 class StoreBinding extends Bindings {

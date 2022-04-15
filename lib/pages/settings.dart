@@ -14,35 +14,142 @@ class SettingsPage extends GetView<StoreController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          PageHeader(title: title),
-          Expanded(
-            child: SingleChildScrollView(
-              controller: ScrollController(),
-              scrollDirection: Axis.vertical,
-              child: Column(
+    return DefaultTabController(
+      length: 3,
+      initialIndex: 0,
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            PageHeader(title: title),
+            TabBar(
+              labelColor: Colors.grey.shade700,
+              labelStyle: const TextStyle(fontWeight: FontWeight.w700),
+              tabs: const [
+                Tab(
+                  text: 'Dateien/Verzeichnisse',
+                ),
+                Tab(
+                  text: 'Textkürzel',
+                ),
+                Tab(
+                  text: 'Laboreinstellungen',
+                ),
+              ],
+            ),
+            Expanded(
+              child: TabBarView(
+                  // child: TabFilesFolder(controller: controller)
                 children: [
-                  PathChooser(
-                      title: 'Pfad zur GDT-Datei',
-                      label: 'GDT',
-                      icon: const Icon(LineIcons.file),
-                      itemCtr: controller.gdtPathController,
-                  ),
-                  Container(
-                    color: Colors.blue,
-                    height: 500,
-                  ),
-                  Container(
-                    color: Colors.green,
-                    height: 500,
-                  ),
+                  TabFilesFolder(controller: controller),
+                  const TextData(),
+                  const LaboratorySettings(),
                 ],
+
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TabFilesFolder extends StatelessWidget {
+  const TabFilesFolder({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+
+  final StoreController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      controller: ScrollController(),
+      scrollDirection: Axis.vertical,
+      child: Column(
+        children: [
+          PathChooser(
+              title: 'Pfad zur GDT-Datei',
+              label: 'GDT-Datei',
+              icon: const Icon(LineIcons.file),
+              itemCtr: controller.gdtPathController,
+          ),
+          const Divider(),
+          PathChooser(
+              title: 'Pfad zum Verzeichnis der Textkürzel-Datei',
+              label: 'textdata.json',
+              icon: const Icon(LineIcons.folderOpen),
+              itemCtr: controller.textDataFilePathController,
+          ),
+          const Divider(),
+          PathChooser(
+            title: 'Pfad zur Datenbank-Datei',
+            label: 'RheumaDok DB',
+            icon: const Icon(LineIcons.file),
+            itemCtr: controller.dbFilePathController,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class TextData extends StatelessWidget {
+  const TextData({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      controller: ScrollController(),
+      scrollDirection: Axis.vertical,
+      child: Column(
+        children: [
+          Container(
+            color: Colors.yellow,
+            height: 500,
+          ),
+          Container(
+            color: Colors.blue,
+            height: 500,
+          ),
+          Container(
+            color: Colors.green,
+            height: 500,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class LaboratorySettings extends StatelessWidget {
+  const LaboratorySettings({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      controller: ScrollController(),
+      scrollDirection: Axis.vertical,
+      child: Column(
+        children: [
+          Container(
+            color: Colors.blue,
+            height: 500,
+          ),
+          Container(
+            color: Colors.yellow,
+            height: 500,
+          ),
+          Container(
+            color: Colors.green,
+            height: 500,
           ),
         ],
       ),
