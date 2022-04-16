@@ -90,6 +90,7 @@ class MainLayout extends GetView<StoreController> with WindowListener {
           disposeWidget();
         },
         chid: Scaffold(
+          backgroundColor: Colors.grey.shade100,
           appBar: PreferredSize(
             child: WindowCaption(
               brightness: Theme
@@ -103,7 +104,7 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                   fontSize: 15,
                 ),
               ),
-              backgroundColor: Colors.grey[500],
+              backgroundColor: Colors.grey.shade500,
             ),
             preferredSize: const Size.fromHeight(kWindowCaptionHeight),
           ),

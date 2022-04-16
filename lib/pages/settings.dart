@@ -23,20 +23,23 @@ class SettingsPage extends GetView<StoreController> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             PageHeader(title: title),
-            TabBar(
-              labelColor: Colors.grey.shade700,
-              labelStyle: const TextStyle(fontWeight: FontWeight.w700),
-              tabs: const [
-                Tab(
-                  text: 'Dateien/Verzeichnisse',
-                ),
-                Tab(
-                  text: 'Textkürzel',
-                ),
-                Tab(
-                  text: 'Laboreinstellungen',
-                ),
-              ],
+            Container(
+              color: Colors.grey.shade200,
+              child: TabBar(
+                labelColor: Colors.grey.shade700,
+                labelStyle: const TextStyle(fontWeight: FontWeight.w700),
+                tabs: const [
+                  Tab(
+                    text: 'Dateien/Verzeichnisse',
+                  ),
+                  Tab(
+                    text: 'Textkürzel',
+                  ),
+                  Tab(
+                    text: 'Laboreinstellungen',
+                  ),
+                ],
+              ),
             ),
             Expanded(
               child: TabBarView(

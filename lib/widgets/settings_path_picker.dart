@@ -27,7 +27,7 @@ class PathChooser extends GetView<StoreController> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(
-            height: 25,
+            height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
