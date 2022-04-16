@@ -78,9 +78,10 @@ class PathChooser extends GetView<StoreController> {
                 child: IconButton(
                   onPressed: () {},
                   icon: icon,
-                  color: Colors.grey.shade700,
-                  splashRadius: 27,
-                  iconSize: 30,
+                  // color: Colors.grey.shade700,
+                  color: Colors.blue.shade700,
+                  splashRadius: 25,
+                  iconSize: 25,
                 ),
               ),
             ],
