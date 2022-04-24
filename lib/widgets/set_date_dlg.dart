@@ -8,8 +8,8 @@ import 'package:intl/intl.dart';
 openSetDateDlg(BuildContext context) async {
   final StoreController store = Get.put(StoreController());
   DateTime currentDate;
-  currentDate = store.appointmentDateStr.value != ''
-      ? DateFormat('dd.MM.yyyy').parse(store.appointmentDateStr.value)
+  currentDate = store.appointmentDateStr != ''
+      ? DateFormat('dd.MM.yyyy').parse(store.appointmentDateStr)
       : DateTime.now();
   final DateTime? _selected = await showDatePicker(
       locale: const Locale('de', 'DE'),

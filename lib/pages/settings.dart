@@ -74,6 +74,7 @@ class TabFilesFolder extends StatelessWidget {
       scrollDirection: Axis.vertical,
       child: Column(
         children: [
+          const SizedBox(height: 10,),
           PathChooser(
               title: 'Pfad zur GDT-Datei',
               label: 'GDT-Datei',

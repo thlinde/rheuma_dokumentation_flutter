@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rheuma_dokumentation/model/store.dart';
+import 'package:stockholm/stockholm.dart';
 
 class PathChooser extends GetView<StoreController> {
   const PathChooser({
@@ -21,13 +22,13 @@ class PathChooser extends GetView<StoreController> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120,
+      height: 100,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -63,25 +64,33 @@ class PathChooser extends GetView<StoreController> {
                 ),
               ),
               Expanded(
-                child: TextField(
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                  ),
+                child: StockholmTextField(
                   controller: itemCtr,
-                  readOnly: true,
                 ),
               ),
+              // Expanded(
+              //   child: TextField(
+              //     decoration: const InputDecoration(
+              //       border: OutlineInputBorder(),
+              //       contentPadding:
+              //           EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+              //     ),
+              //     controller: itemCtr,
+              //     readOnly: true,
+              //   ),
+              // ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: icon,
-                  // color: Colors.grey.shade700,
-                  color: Colors.blue.shade700,
-                  splashRadius: 25,
-                  iconSize: 25,
+                child: CircleAvatar(
+                  radius: 20,
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  child: IconButton(
+                    icon: icon,
+                    onPressed: () => print('User pressed!'),
+                    splashRadius: 25,
+                    iconSize: 25,
+                    autofocus: true,
+                  ),
                 ),
               ),
             ],

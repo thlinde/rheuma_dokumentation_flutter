@@ -5,13 +5,23 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class StoreController extends GetxController {
-  var appointmentDateStr = ''.obs;
-  String getAppointmentDateStr() => appointmentDateStr.value;
-  setAppointmentDateStr(String str) => appointmentDateStr.value = str;
+  // global variables, getter, setter
+  final _appointmentDateStr = ''.obs;
+  String get appointmentDateStr => _appointmentDateStr.value;
+  void setAppointmentDateStr(String str) => _appointmentDateStr.value = str;
 
+  // textcontroller, getter, setter
   TextEditingController gdtPathController = TextEditingController();
+  String get gdtPath => gdtPathController.text;
+  void setGdtPath(String value) => gdtPathController.text = value;
+
   TextEditingController textDataFilePathController = TextEditingController();
+  String get textDataFilePath => textDataFilePathController.text;
+  void setTextDataFilePath(String value) => textDataFilePathController.text = value;
+
   TextEditingController dbFilePathController = TextEditingController();
+  String get dbFilePath => dbFilePathController.text;
+  void setDbFilePathController(String value) => dbFilePathController.text = value;
 }
 
 class StoreBinding extends Bindings {

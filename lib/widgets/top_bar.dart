@@ -37,6 +37,7 @@ class TopBar extends GetView<StoreController> {
                     size: 25,
                   ),
                   onPressed: () => print('User pressed!'),
+                  splashRadius: 25,
                 ),
               ),
             ),
@@ -63,32 +64,6 @@ class TopBar extends GetView<StoreController> {
               ],
             ),
             const Spacer(),
-            // Obx(() =>
-            //     Text(
-            //       controller.getAppointmentDateStr(),
-            //       style: TextStyle(
-            //           fontSize: 20,
-            //           color: Colors.grey.shade100
-            //       ),
-            //     ),
-            // ),
-            // const Padding(padding: EdgeInsets.only(right: 16)),
-            // SizedBox(
-            //   height: 35,
-            //   width: 35,
-            //   child: CircleAvatar(
-            //     radius: 30,
-            //     backgroundColor: Theme.of(context).colorScheme.primary,
-            //     child: IconButton(
-            //       icon: const Icon(
-            //         LineIcons.calendarWithWeekFocus,
-            //         size: 20,
-            //       ),
-            //       onPressed: () => openSetDateDlg(context),
-            //     ),
-            //   ),
-            // ),
-            // const Padding(padding: EdgeInsets.only(right: 16)),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -101,10 +76,6 @@ class TopBar extends GetView<StoreController> {
                     backgroundColor: Colors.transparent,
                   ),
                 ),
-                // SizedBox(
-                //   width: 138,
-                //   height: 20,
-                // )
                 SizedBox(
                   width: 250,
                   height: 35,
@@ -114,7 +85,8 @@ class TopBar extends GetView<StoreController> {
                     children: [
                       Obx(() =>
                           Text(
-                            controller.getAppointmentDateStr(),
+                            // controller.getAppointmentDateStr(),
+                            controller.appointmentDateStr,
                             style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.grey.shade300
