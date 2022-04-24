@@ -91,27 +91,12 @@ class MainLayout extends GetView<StoreController> with WindowListener {
         },
         chid: Scaffold(
           backgroundColor: Colors.grey.shade100,
-          appBar: PreferredSize(
-            child: WindowCaption(
-              brightness: Theme
-                  .of(context)
-                  .brightness,
-              title: const Text(
-                // todo thlinde: change window title
-                'Rheumatologische Dokumentation',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 15,
-                ),
-              ),
-              backgroundColor: Colors.grey.shade500,
-            ),
-            preferredSize: const Size.fromHeight(kWindowCaptionHeight),
-          ),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              const TopBar(),
+              const DragToMoveArea(
+                  child: TopBar()
+              ),
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
