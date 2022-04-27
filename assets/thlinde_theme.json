@@ -1,6 +1,27 @@
 {
   "appBarTheme": {
-    "backgroundColor": "#ff424242"
+    "backgroundColor": "#ff424242",
+    "foregroundColor": "#fffdfdfd",
+    "titleTextStyle": {
+      "color": "#fffdfdfd",
+      "decoration": "none",
+      "fontFamily": "Segoe",
+      "fontWeight": "w500",
+      "fontSize": 20.0,
+      "inherit": true,
+      "letterSpacing": 0.15,
+      "textBaseline": "alphabetic"
+    },
+    "toolbarTextStyle": {
+      "color": "#fffdfdfd",
+      "decoration": "none",
+      "fontFamily": "Segoe",
+      "fontWeight": "w400",
+      "fontSize": 14.0,
+      "inherit": true,
+      "letterSpacing": 0.25,
+      "textBaseline": "alphabetic"
+    }
   },
   "applyElevationOverlayColor": false,
   "backgroundColor": "#ff90caf9",
@@ -118,6 +139,9 @@
   "highlightColor": "#66bcbcbc",
   "hintColor": "#99000000",
   "hoverColor": "#0a000000",
+  "iconTheme": {
+    "color": "#dd000000"
+  },
   "indicatorColor": "#ff2196f3",
   "inputDecorationTheme": {
     "alignLabelWithHint": false,
