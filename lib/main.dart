@@ -1,11 +1,15 @@
 // ignore_for_file: avoid_print
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:json_theme/json_theme.dart';
 
 import 'model/store.dart';
 import 'model/utility.dart';
@@ -21,6 +25,10 @@ void main() async {
   await GetStorage.init();
   final ProgController prog = Get.put(ProgController());
 
+  final themeStr = await rootBundle.loadString('assets/thlinde_theme.json');
+  final themeJson = jsonDecode(themeStr);
+  final theme = ThemeDecoder.decodeThemeData(themeJson)!;
+
   windowManager.waitUntilReadyToShow().then((_) async{
     await windowManager.setTitleBarStyle(TitleBarStyle.hidden);
     await windowManager.setMinimumSize(const Size(1024, 800));
@@ -31,11 +39,13 @@ void main() async {
     await windowManager.setSkipTaskbar(false);
   });
 
-  runApp(const ThlindeApp());
+  runApp(ThlindeApp(theme: theme));
 }
 
 class ThlindeApp extends StatelessWidget {
-  const ThlindeApp({Key? key}) : super(key: key);
+  final ThemeData theme;
+
+  const ThlindeApp({Key? key, required this.theme}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -45,9 +55,10 @@ class ThlindeApp extends StatelessWidget {
       initialBinding: StoreBinding(),
       // scrollBehavior: AppScrollBehavior(),
       title: 'thlindeApp',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      // theme: ThemeData(
+      //   primarySwatch: Colors.blue,
+      // ),
+      theme: theme,
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

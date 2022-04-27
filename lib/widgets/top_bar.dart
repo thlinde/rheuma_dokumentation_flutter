@@ -19,7 +19,8 @@ class TopBar extends GetView<StoreController> {
     return SizedBox(
       height: 70,
       child: Ink(
-        color: Colors.grey.shade800,
+        // color: Colors.grey.shade800,
+        color: Theme.of(context).appBarTheme.backgroundColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,7 +52,8 @@ class TopBar extends GetView<StoreController> {
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
-                      color: Colors.grey.shade300
+                      // color: Colors.grey.shade300
+                    color: Theme.of(context).appBarTheme.foregroundColor
                   ),
                 ),
                 Text(
