@@ -117,8 +117,14 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                       mainAxisSize: MainAxisSize.max,
                       children: <Widget>[
                         Expanded(
-                          child: SizedBox(
+                          child: Container(
                             width: 250.0,
+                            decoration: BoxDecoration(
+                                border: Border(
+                                    right: BorderSide(
+                                      width: 1.0,
+                                      color: Colors.grey.shade300,
+                            ))),
                             child: ListView.builder(
                               padding: const EdgeInsets.all(8),
                               itemCount: navContentPages.length,
@@ -150,9 +156,15 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                         ),
                         Row(
                           children: [
-                            SizedBox(
+                            Container(
                               width: 250,
                               height: 220,
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      right: BorderSide(
+                                        width: 1.0,
+                                        color: Colors.grey.shade300,
+                                      ))),
                               child: ListView(
                                 padding: const EdgeInsets.all(8),
                                 children: [

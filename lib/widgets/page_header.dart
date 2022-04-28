@@ -20,7 +20,7 @@ class PageHeader extends StatelessWidget {
             style: TextStyle(
               fontSize: 23,
               fontWeight: FontWeight.w800,
-              color: Colors.grey.shade700,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
           ),
         ],

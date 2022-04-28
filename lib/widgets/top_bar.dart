@@ -86,7 +86,6 @@ class TopBar extends GetView<StoreController> {
                     children: [
                       Obx(() =>
                           Text(
-                            // controller.getAppointmentDateStr(),
                             controller.appointmentDateStr,
                             style: TextStyle(
                                 fontSize: 20,

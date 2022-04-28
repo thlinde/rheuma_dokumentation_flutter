@@ -18,7 +18,7 @@ class SettingsPage extends GetView<StoreController> {
       length: 3,
       initialIndex: 0,
       child: Container(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -26,7 +26,7 @@ class SettingsPage extends GetView<StoreController> {
             Container(
               color: Colors.grey.shade200,
               child: TabBar(
-                labelColor: Colors.grey.shade700,
+                labelColor: Theme.of(context).colorScheme.onSurfaceVariant,
                 labelStyle: const TextStyle(fontWeight: FontWeight.w700),
                 tabs: const [
                   Tab(

@@ -38,7 +38,7 @@ class PathChooser extends GetView<StoreController> {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.grey.shade700,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ),
             ],
@@ -58,7 +58,7 @@ class PathChooser extends GetView<StoreController> {
                     label,
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.grey.shade700,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
                   ),
                 ),
