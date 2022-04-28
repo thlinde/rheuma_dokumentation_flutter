@@ -19,7 +19,7 @@ class TopBar extends GetView<StoreController> {
     return SizedBox(
       height: 70,
       child: Ink(
-        color: Theme.of(context).appBarTheme.backgroundColor,
+        color: Theme.of(context).colorScheme.inverseSurface,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,8 +36,7 @@ class TopBar extends GetView<StoreController> {
                     LineIcons.user,
                     size: 25,
                   ),
-                  // onPressed: () => print('User pressed!'),
-                  onPressed: () => print(Theme.of(context).appBarTheme.titleTextStyle?.color.toString()),
+                  onPressed: () => print('User pressed!'),
                   splashRadius: 25,
                 ),
               ),
@@ -53,14 +52,14 @@ class TopBar extends GetView<StoreController> {
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
                       color:
-                          Theme.of(context).appBarTheme.titleTextStyle?.color
+                          Theme.of(context).colorScheme.onInverseSurface
                   ),
                 ),
                 Text(
                   'Pat-ID: 55639, geboren am 25.11.1961, männlich',
                   style: TextStyle(
                       fontSize: 16,
-                      color: Theme.of(context).appBarTheme.titleTextStyle?.color
+                      color: Theme.of(context).colorScheme.onInverseSurface
                   ),
                 ),
               ],
@@ -91,7 +90,7 @@ class TopBar extends GetView<StoreController> {
                             controller.appointmentDateStr,
                             style: TextStyle(
                                 fontSize: 20,
-                                color: Theme.of(context).appBarTheme.titleTextStyle?.color
+                                color: Theme.of(context).colorScheme.onInverseSurface
                             ),
                           ),
                       ),
@@ -99,7 +98,7 @@ class TopBar extends GetView<StoreController> {
                       IconButton(
                         onPressed: () => openSetDateDlg(context),
                         icon: const Icon(LineIcons.calendarWithDayFocus),
-                        color: Theme.of(context).appBarTheme.titleTextStyle?.color,
+                        color: Theme.of(context).colorScheme.onInverseSurface,
                       ),
                       const Padding(padding: EdgeInsets.only(right: 4)),
                     ],

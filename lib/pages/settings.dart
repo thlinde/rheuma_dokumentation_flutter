@@ -91,7 +91,7 @@ class TabFilesFolder extends StatelessWidget {
           const Divider(),
           PathChooser(
             title: 'Pfad zur Datenbank-Datei',
-            label: 'RheumaDok DB',
+            label: 'RheumaDok',
             icon: const Icon(LineIcons.file),
             itemCtr: controller.dbFilePathController,
           ),
