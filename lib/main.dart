@@ -101,7 +101,6 @@ class MainLayout extends GetView<StoreController> with WindowListener {
           disposeWidget();
         },
         chid: Scaffold(
-          backgroundColor: Colors.grey.shade100,
           body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -205,6 +204,7 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                                   Card(
                                     elevation: 0.0,
                                     color: Colors.red[300],
+                                    // color: Theme.of(context).errorColor,
                                     child: ListTile(
                                       textColor: Colors.grey[100],
                                       onTap: () {
