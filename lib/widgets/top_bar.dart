@@ -19,7 +19,7 @@ class TopBar extends GetView<StoreController> {
     return SizedBox(
       height: 70,
       child: Ink(
-        color: Theme.of(context).colorScheme.inverseSurface,
+        color: Theme.of(context).appBarTheme.backgroundColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,14 +52,14 @@ class TopBar extends GetView<StoreController> {
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
                       color:
-                          Theme.of(context).colorScheme.onInverseSurface
+                          Theme.of(context).appBarTheme.foregroundColor
                   ),
                 ),
                 Text(
                   'Pat-ID: 55639, geboren am 25.11.1961, männlich',
                   style: TextStyle(
                       fontSize: 16,
-                      color: Theme.of(context).colorScheme.onInverseSurface
+                      color: Theme.of(context).appBarTheme.foregroundColor
                   ),
                 ),
               ],
@@ -89,7 +89,7 @@ class TopBar extends GetView<StoreController> {
                             controller.appointmentDateStr,
                             style: TextStyle(
                                 fontSize: 20,
-                                color: Theme.of(context).colorScheme.onInverseSurface
+                                color: Theme.of(context).appBarTheme.foregroundColor,
                             ),
                           ),
                       ),
@@ -97,7 +97,7 @@ class TopBar extends GetView<StoreController> {
                       IconButton(
                         onPressed: () => openSetDateDlg(context),
                         icon: const Icon(LineIcons.calendarWithDayFocus),
-                        color: Theme.of(context).colorScheme.onInverseSurface,
+                        color: Theme.of(context).appBarTheme.foregroundColor,
                       ),
                       const Padding(padding: EdgeInsets.only(right: 4)),
                     ],

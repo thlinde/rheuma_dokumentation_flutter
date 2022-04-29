@@ -146,7 +146,7 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                                       },
                                       title: Text(
                                         navContentPages[index].title,
-                                        style: const TextStyle(fontSize: 14),
+                                        style: Theme.of(context).textTheme.bodyText2,
                                       ),
                                       leading: Icon(navContentPages[index].icon),
                                     ),
@@ -182,9 +182,9 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                                         // );
                                         page.jumpToPage(navContentPages.length);
                                       },
-                                      title: const Text(
+                                      title: Text(
                                         "Einstellungen",
-                                        style: TextStyle(fontSize: 14),
+                                        style: Theme.of(context).textTheme.bodyText2,
                                       ),
                                       leading: const Icon(
                                         LineIcons.cog,
@@ -204,9 +204,9 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                                         // );
                                         page.jumpToPage(navContentPages.length + 1);
                                       },
-                                      title: const Text(
+                                      title: Text(
                                         "Information",
-                                        style: TextStyle(fontSize: 14),
+                                        style: Theme.of(context).textTheme.bodyText2,
                                       ),
                                       leading: const Icon(
                                         LineIcons.infoCircle,
@@ -226,7 +226,6 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                                         "Programm beenden",
                                         style: TextStyle(
                                             fontSize: 14,
-                                            fontWeight: FontWeight.w600
                                         ),
                                       ),
                                       leading: Icon(LineIcons.powerOff,
@@ -237,8 +236,11 @@ class MainLayout extends GetView<StoreController> with WindowListener {
                                     padding: const EdgeInsets.only(top: 4),
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.center,
-                                      children: const [
-                                        Text('Ⓒ thlinde 2022'),
+                                      children: [
+                                        Text(
+                                          'Ⓒ thlinde 2022',
+                                          style: Theme.of(context).textTheme.caption,
+                                        ),
                                       ],
                                     ),
                                   )

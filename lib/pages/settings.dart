@@ -26,8 +26,8 @@ class SettingsPage extends GetView<StoreController> {
             Container(
               color: Colors.grey.shade200,
               child: TabBar(
-                labelColor: Theme.of(context).colorScheme.onSurfaceVariant,
-                labelStyle: const TextStyle(fontWeight: FontWeight.w700),
+                labelColor: Theme.of(context).colorScheme.onSurface,
+                labelStyle: Theme.of(context).textTheme.titleMedium,
                 tabs: const [
                   Tab(
                     text: 'Dateien/Verzeichnisse',

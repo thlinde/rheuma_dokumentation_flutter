@@ -17,11 +17,12 @@ class PageHeader extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
-              fontSize: 23,
-              fontWeight: FontWeight.w800,
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
-            ),
+            // style: TextStyle(
+            //   fontSize: 23,
+            //   fontWeight: FontWeight.w800,
+            //   color: Theme.of(context).colorScheme.onSurfaceVariant,
+            // ),
+            style: Theme.of(context).textTheme.headline5,
           ),
         ],
       ),

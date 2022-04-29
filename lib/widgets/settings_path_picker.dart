@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rheuma_dokumentation/model/store.dart';
-import 'package:stockholm/stockholm.dart';
 
 class PathChooser extends GetView<StoreController> {
   const PathChooser({
@@ -35,11 +34,7 @@ class PathChooser extends GetView<StoreController> {
             children: [
               Text(
                 title,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
+                style: Theme.of(context).textTheme.subtitle1,
               ),
             ],
           ),
@@ -56,29 +51,16 @@ class PathChooser extends GetView<StoreController> {
                   width: 100,
                   child: Text(
                     label,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    ),
+                    style: Theme.of(context).textTheme.bodyText2,
                   ),
                 ),
               ),
               Expanded(
-                child: StockholmTextField(
+                child: TextField(
                   controller: itemCtr,
+                  readOnly: true,
                 ),
               ),
-              // Expanded(
-              //   child: TextField(
-              //     decoration: const InputDecoration(
-              //       border: OutlineInputBorder(),
-              //       contentPadding:
-              //           EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-              //     ),
-              //     controller: itemCtr,
-              //     readOnly: true,
-              //   ),
-              // ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: CircleAvatar(
@@ -100,13 +82,3 @@ class PathChooser extends GetView<StoreController> {
     );
   }
 }
-
-// IconButton(
-// onPressed: () => {},
-// splashRadius: 25,
-// icon: Icon(
-// LineIcons.fileDownload,
-// color: Colors.grey[100],
-// size: 20,
-// ),
-// ),
