@@ -1,22 +1,27 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:rheuma_dokumentation/model/store.dart';
+import 'package:file_picker/file_picker.dart';
 
+//ignore: must_be_immutable
 class PathChooser extends GetView<StoreController> {
-  const PathChooser({
+  PathChooser({
     Key? key,
     required this.title,
     required this.label,
     required this.icon,
     required this.itemCtr,
+    required this.isDirectory,
   }) : super(key: key);
 
   final String title;
   final String label;
   final Icon icon;
   final TextEditingController itemCtr;
+  final bool isDirectory;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +73,7 @@ class PathChooser extends GetView<StoreController> {
                   backgroundColor: Theme.of(context).colorScheme.primary,
                   child: IconButton(
                     icon: icon,
-                    onPressed: () => print('User pressed!'),
+                    onPressed: () => _pickPath(),
                     splashRadius: 25,
                     iconSize: 25,
                     autofocus: true,
@@ -79,6 +84,40 @@ class PathChooser extends GetView<StoreController> {
           ),
         ],
       ),
+    );
+  }
+
+  List<PlatformFile>? _filePaths;
+  String? _directoryPath;
+
+  void _pickPath() async {
+    try {
+      if(isDirectory) {
+        _directoryPath = await FilePicker.platform.getDirectoryPath();
+      } else {
+        _filePaths = (await FilePicker.platform.pickFiles(
+          allowMultiple: false,
+        ))?.files;
+      }
+    } on PlatformException catch (e) {
+      _logException('Unsupported operation:' + e.toString());
+    } catch (e){
+      _logException(e.toString());
+    }
+    if(isDirectory) {
+      itemCtr.text = _directoryPath != null ? _directoryPath! : '';
+    } else {
+      itemCtr.text = (_filePaths != null ? _filePaths?.first.path : '')!;
+    }
+  }
+
+  void _logException(String message) {
+    print(message);
+    Get.snackbar(
+        'Fehler',
+        message,
+        snackPosition: SnackPosition.BOTTOM,
+        duration: const Duration(seconds: 5),
     );
   }
 }

@@ -45,6 +45,7 @@ dependencies:
   line_icons: ^2.0.1
   stockholm: ^0.0.3
   json_theme: ^3.3.1
+  file_picker: ^4.5.1
 
 dev_dependencies:
   flutter_test:
