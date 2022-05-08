@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import '../model/store.dart';
 import '../model/utility.dart';
 import 'set_date_dlg.dart';
+import 'package:rheuma_dokumentation/services/read_gdt.dart';
 
 class TopBar extends GetView<StoreController> {
   const TopBar({Key? key}) : super(key: key);
@@ -19,16 +20,19 @@ class TopBar extends GetView<StoreController> {
     return Container(
       height: 70,
       decoration: const BoxDecoration(
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: Colors.black54,
-            blurRadius: 7.0,
-            offset: Offset(0.0, 0.75)
-          )
-        ]
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+                color: Colors.black54,
+                blurRadius: 7.0,
+                offset: Offset(0.0, 0.75)
+            )
+          ]
       ),
       child: Ink(
-        color: Theme.of(context).appBarTheme.backgroundColor,
+        color: Theme
+            .of(context)
+            .appBarTheme
+            .backgroundColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,13 +43,16 @@ class TopBar extends GetView<StoreController> {
               width: 40,
               child: CircleAvatar(
                 radius: 30,
-                backgroundColor: Theme.of(context).colorScheme.primary,
+                backgroundColor: Theme
+                    .of(context)
+                    .colorScheme
+                    .primary,
                 child: IconButton(
                   icon: const Icon(
                     LineIcons.user,
                     size: 25,
                   ),
-                  onPressed: () => print('User pressed!'),
+                  onPressed: () => readGdt(),
                   splashRadius: 25,
                 ),
               ),
@@ -55,22 +62,32 @@ class TopBar extends GetView<StoreController> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Thomas Linde',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color:
-                          Theme.of(context).appBarTheme.foregroundColor
-                  ),
-                ),
-                Text(
-                  'Pat-ID: 55639, geboren am 25.11.1961, männlich',
-                  style: TextStyle(
-                      fontSize: 16,
-                      color: Theme.of(context).appBarTheme.foregroundColor
-                  ),
-                ),
+                Obx(() {
+                  return Text(
+                    controller.patDataPart1,
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                        color:
+                        Theme
+                            .of(context)
+                            .appBarTheme
+                            .foregroundColor
+                    ),
+                  );
+                }),
+                Obx(() {
+                  return Text(
+                    controller.patDataPart2,
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Theme
+                            .of(context)
+                            .appBarTheme
+                            .foregroundColor
+                    ),
+                  );
+                }),
               ],
             ),
             const Spacer(),
@@ -97,8 +114,11 @@ class TopBar extends GetView<StoreController> {
                           Text(
                             controller.appointmentDateStr,
                             style: TextStyle(
-                                fontSize: 20,
-                                color: Theme.of(context).appBarTheme.foregroundColor,
+                              fontSize: 20,
+                              color: Theme
+                                  .of(context)
+                                  .appBarTheme
+                                  .foregroundColor,
                             ),
                           ),
                       ),
@@ -106,7 +126,10 @@ class TopBar extends GetView<StoreController> {
                       IconButton(
                         onPressed: () => openSetDateDlg(context),
                         icon: const Icon(LineIcons.calendarWithDayFocus),
-                        color: Theme.of(context).appBarTheme.foregroundColor,
+                        color: Theme
+                            .of(context)
+                            .appBarTheme
+                            .foregroundColor,
                       ),
                       const Padding(padding: EdgeInsets.only(right: 4)),
                     ],

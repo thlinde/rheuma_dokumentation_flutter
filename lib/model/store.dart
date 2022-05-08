@@ -22,6 +22,47 @@ class StoreController extends GetxController {
   TextEditingController rheumadokFilePathController = TextEditingController();
   String get rheumadokFilePath => rheumadokFilePathController.text;
   void setRheumadokFilePathController(String value) => rheumadokFilePathController.text = value;
+
+  // patient data, getter, setter
+  final _patId = ''.obs;
+  String get patId => _patId.value;
+  void setPatId(String val) => _patId.value = val;
+
+  final _patSurname = ''.obs;
+  String get patSurname => _patSurname.value;
+  void setPatSurname(String val) => _patSurname.value = val;
+
+  final _patLastName = ''.obs;
+  String get patLastName => _patLastName.value;
+  void setPatLastName(String val) => _patLastName.value = val;
+
+  final _patBirthday = ''.obs;
+  String get patBirthday => _patBirthday.value;
+  void setPatBirthday(String val) => _patBirthday.value = val;
+
+  final _patAge = ''.obs;
+  String get patAge => _patAge.value;
+  void setPatAge(String val) => _patAge.value = val;
+
+  final _patGender = ''.obs;
+  String get patGender => _patGender.value;
+  void setPatGender(String val) => _patGender.value = val;
+
+  String get patDataPart1 => patId.isNotEmpty
+      ? '$patSurname $patLastName'
+      : '';
+
+  String get patDataPart2 => patId.isNotEmpty
+      ? 'Pat-ID: $patId, geboren am $patBirthday ($patAge Jahre), $patGender'
+      : '';
+
+  final _patZipCity = ''.obs;
+  String get patZipCity => _patZipCity.value;
+  void setPatZipCity(String val) => _patZipCity.value = val;
+
+  final _patStreetNo = ''.obs;
+  String get patStreetNo => _patStreetNo.value;
+  void setPatStreetNo(String val) => _patStreetNo.value = val;
 }
 
 class StoreBinding extends Bindings {

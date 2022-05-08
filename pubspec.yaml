@@ -43,9 +43,9 @@ dependencies:
   get_storage: ^2.0.3
   intl: ^0.17.0
   line_icons: ^2.0.1
-  stockholm: ^0.0.3
   json_theme: ^3.3.1
   file_picker: ^4.5.1
+  charset_converter: ^2.1.0
 
 dev_dependencies:
   flutter_test:
