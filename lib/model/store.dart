@@ -19,9 +19,9 @@ class StoreController extends GetxController {
   String get textDataFilePath => textDataFilePathController.text;
   void setTextDataFilePath(String value) => textDataFilePathController.text = value;
 
-  TextEditingController dbFilePathController = TextEditingController();
-  String get dbFilePath => dbFilePathController.text;
-  void setDbFilePathController(String value) => dbFilePathController.text = value;
+  TextEditingController rheumadokFilePathController = TextEditingController();
+  String get rheumadokFilePath => rheumadokFilePathController.text;
+  void setRheumadokFilePathController(String value) => rheumadokFilePathController.text = value;
 }
 
 class StoreBinding extends Bindings {
@@ -33,6 +33,8 @@ class StoreBinding extends Bindings {
 
 class ProgController extends GetxController {
   final storage = GetStorage();
+
+  // window
   double get xPos => storage.read('xPos') ?? 50.0;
   void setXPos(double val) => storage.write('xPos', val);
   double get yPos => storage.read('yPos') ?? 50.0;
@@ -41,5 +43,13 @@ class ProgController extends GetxController {
   void setHeight(double val) => storage.write('height', val);
   double get width => storage.read('width') ?? 1000.0;
   void setWidth(double val) => storage.write('width', val);
+
+  // settings
+  String get gdtFilePath => storage.read('gdtFilePath') ?? '';
+  void setGdtFilePath(String val) => storage.write('gdtFilePath', val);
+  String get textdataDirectoryPath => storage.read('textdataDirectoryPath') ?? '';
+  void setTextdataDirectoryPath(String val) => storage.write('textdataDirectoryPath', val);
+  String get rheumadokFilePath => storage.read('rheumadokFilePath') ?? '';
+  void setRheumadokFilePath(String val) => storage.write('rheumadokFilePath', val);
 }
 

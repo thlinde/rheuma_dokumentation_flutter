@@ -77,6 +77,9 @@ class MainLayout extends GetView<StoreController> with WindowListener {
   MainLayout({Key? key}) : super(key: key);
   void initWidget() {
     windowManager.addListener(this);
+    store.gdtPathController.text = prog.gdtFilePath;
+    store.textDataFilePathController.text = prog.textdataDirectoryPath;
+    store.rheumadokFilePathController.text = prog.rheumadokFilePath;
   }
 
   void disposeWidget() {
@@ -84,6 +87,7 @@ class MainLayout extends GetView<StoreController> with WindowListener {
   }
 
   final ProgController prog = Get.find();
+  final StoreController store = Get.put(StoreController());
 
   @override
   Widget build(BuildContext context) {
@@ -304,12 +308,18 @@ class MainLayout extends GetView<StoreController> with WindowListener {
   }
 
   saveProgSettings() async {
+    // window
     final pos = await windowManager.getPosition();
     prog.setXPos(pos.dx);
     prog.setyPos(pos.dy);
     final size = await windowManager.getSize();
     prog.setHeight(size.height);
     prog.setWidth(size.width);
+
+    // settings
+    prog.setGdtFilePath(store.gdtPathController.text);
+    prog.setTextdataDirectoryPath(store.textDataFilePathController.text);
+    prog.setRheumadokFilePath(store.rheumadokFilePathController.text);
   }
 }
 
