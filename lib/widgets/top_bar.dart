@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:get/get.dart';
-import '../model/store.dart';
-import '../model/utility.dart';
-import 'set_date_dlg.dart';
+import 'package:rheuma_dokumentation/model/store.dart';
+import 'package:rheuma_dokumentation/model/utility.dart';
+import 'package:rheuma_dokumentation/widgets/set_date_dlg.dart';
 import 'package:rheuma_dokumentation/services/read_gdt.dart';
 
 class TopBar extends GetView<StoreController> {

@@ -8,6 +8,7 @@ import 'package:rheuma_dokumentation/model/store.dart';
 import 'package:rheuma_dokumentation/services/calculate_age.dart';
 import 'package:get/get.dart';
 import 'package:charset_converter/charset_converter.dart';
+import 'package:flutter/material.dart';
 
 void readGdt() async {
   StoreController store = Get.find();
@@ -47,5 +48,19 @@ void readGdt() async {
       }
     });
     calculateAge();
+  } else {
+    Get.defaultDialog(
+      title: 'Achtung!',
+      titleStyle: const TextStyle(fontWeight: FontWeight.w700),
+      middleText: 'Bitte Pfad zur GDT-Datei in Einstellungen anpassen.',
+      middleTextStyle: const TextStyle(fontWeight: FontWeight.w400),
+      textConfirm: 'OK',
+      confirmTextColor: Colors.grey[100],
+      backgroundColor: Colors.grey[300],
+      radius: 4,
+      onConfirm: ()  {
+        Get.back();
+      },
+    );
   }
 }

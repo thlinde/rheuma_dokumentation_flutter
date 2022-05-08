@@ -53,7 +53,7 @@ class StoreController extends GetxController {
       : '';
 
   String get patDataPart2 => patId.isNotEmpty
-      ? 'Pat-ID: $patId, geboren am $patBirthday ($patAge Jahre), $patGender'
+      ? 'Pat-ID: $patId, geb. am $patBirthday ($patAge Jahre), $patGender'
       : '';
 
   final _patZipCity = ''.obs;
