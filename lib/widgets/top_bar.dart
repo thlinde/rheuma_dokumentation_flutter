@@ -16,8 +16,17 @@ class TopBar extends GetView<StoreController> {
     // thlinde:init appointment date
     controller.setAppointmentDateStr(todayDate());
 
-    return SizedBox(
+    return Container(
       height: 70,
+      decoration: const BoxDecoration(
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: Colors.black54,
+            blurRadius: 7.0,
+            offset: Offset(0.0, 0.75)
+          )
+        ]
+      ),
       child: Ink(
         color: Theme.of(context).appBarTheme.backgroundColor,
         child: Row(
